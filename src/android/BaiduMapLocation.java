@@ -175,7 +175,12 @@ public class BaiduMapLocation extends CordovaPlugin {
             mLocationClient.setLocOption(getDefaultLocationClientOption());
         }
 
-        mLocationClient.start();
+		if (mLocationClient.isStarted()){
+			mLocationClient.requestLocation();
+		}
+		else {
+			mLocationClient.start();
+		}
     }
 
 
